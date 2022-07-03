@@ -91,6 +91,9 @@ export default function EditCostumer({navigation, route}){
 const styles = StyleSheet.create({
     container:{
       marginTop: 40
+    },bg:{width :'100%',
+        height:'100%'
+
     },
     posTitle:{
       alignItems: 'center'

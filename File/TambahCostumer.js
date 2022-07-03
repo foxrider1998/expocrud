@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Picker, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TextInput, Picker, TouchableOpacity, StyleSheet ,ImageBackground} from "react-native";
 import {dataRef} from './References';
 
 export default function TambahCostumer({navigation, route}){
@@ -18,10 +18,10 @@ export default function TambahCostumer({navigation, route}){
         const ref = dataRef.child("cost").push(newData);
         const key = ref.key;
         dataRef.child("cost").child(key).update({'key': key})
-        navigation.navigate('Home')
+        navigation.navigate('Menu')
     };
 
-    return (
+    return ( <ImageBackground source={require("../assets/login.jpg")} style={styles.bg} >
       <View style={styles.container}>
         <View style={styles.posTitle}>
           <Text style={styles.title}>Tambah Costumer</Text>
@@ -80,6 +80,7 @@ export default function TambahCostumer({navigation, route}){
           </View>
           
       </View>
+    </ImageBackground>
     )
 }
 
@@ -119,6 +120,10 @@ const styles = StyleSheet.create({
     posButton:{
       margin: 20,
       alignItems:'center'
+    },
+    bg:{width :'100%',
+        height:'100%'
+
     },
     button:{
       borderRadius: 5,

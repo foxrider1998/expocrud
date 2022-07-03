@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity ,Alert,Image,ImageBackground} from "react-native";
 import {dataRef} from './References';
 
 export default function Data({navigation, route}){
@@ -28,15 +28,35 @@ export default function Data({navigation, route}){
         
       }
 
-    const hapusData = (key) =>{
+  const act = (item) => {
+    let key =item.key;
+    //function to make three option alert
+    Alert.alert(
+      //title
+      'Hello',
+      //body
+      ' What action do you want to do to '+item.nama+' ?',
+      [
+        { text: 'Cancel', onPress: () => console.log('cancel') },
+        { text: 'Edit', onPress: () => sendData(item) },
+        { text: 'Delete' , onPress: () => hapusData(key) },
+      ],
+      { cancelable: true }
+    );
+  };
+
+
+
+   const hapusData = (key) =>{
         dataRef.child("barang").child(key).remove();
-       }
+   }
+
     const tambahbarang=() => {
         navigation.navigate('MyStack',{
             screen:'Tambah Barang'})
       }
       
-    return( 
+    return(  <ImageBackground source={require("../assets/login.jpg")} style={styles.bg} >
        <View style={styles.container}>
           <View style={styles.posTitle}>
             <Text style={styles.title}>Data Barang</Text>
@@ -75,17 +95,11 @@ export default function Data({navigation, route}){
                                     </Text>
                                 </View> 
                                 <View style = {styles.contentTitle1}>
-                                   <TouchableOpacity onPress={()=>sendData(item)}>   
-                                    <Text style = {styles.textContentTitle1}> 0
-                                    </Text>
-
+                                   <TouchableOpacity onPress={()=>act(item)}>   
+                                    
+                                    <Image source={require('../assets/edit.png' )} ></Image>
                                    </TouchableOpacity>
-                                
-                                   <TouchableOpacity onPress={()=>hapusData(item.key)}>   
-                                    <Text style = {styles.textContentTitle1}> 0
-                                    </Text>
-
-                                   </TouchableOpacity>
+                            
                                 </View> 
                             </View>
                  
@@ -93,18 +107,30 @@ export default function Data({navigation, route}){
                 }}
                 />
             </View>
-            <View>
-                    <TouchableOpacity onPress={()=>tambahbarang()}>
+               <View style={styles.posButton}>
+        <TouchableOpacity style={styles.button} onPress={()=>tambahbarang()}>
                      <Text style = {styles.textContentTitle1}>Tambah</Text>
                     </TouchableOpacity>
                     </View>
       </View>
+       </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
       marginTop: 40
+    },posButton:{
+      margin: 20,
+      alignItems:'center'
+    },
+    button:{
+      borderRadius: 5,
+      width: 180,
+      height: 30,
+      alignItems:'center',
+      backgroundColor : '#ccffff',
+      justifyContent : 'center'
     },
     posTitle:{
       alignItems: 'center'
@@ -147,6 +173,10 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         color: 'white',
         fontSize:15
+    },
+    bg:{width :'100%',
+        height:'100%'
+
     },
     textContentTitle1:{
         fontWeight:'bold',

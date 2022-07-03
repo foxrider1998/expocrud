@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Picker, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TextInput, Picker, TouchableOpacity, StyleSheet,ImageBackground } from "react-native";
 import {dataRef} from './References';
 
 export default function Edit({navigation, route}){
@@ -23,7 +23,7 @@ export default function Edit({navigation, route}){
     
      }
 
-    return (
+    return ( <ImageBackground source={require("../assets/login.jpg")} style={styles.bg} >
       <View style={styles.container}>
         <View style={styles.posTitle}>
           <Text style={styles.title}>Ubah barang</Text>
@@ -75,12 +75,16 @@ export default function Edit({navigation, route}){
             </View>
           </View>
       </View>
+      </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
       marginTop: 40
+    },bg:{width :'100%',
+        height:'100%'
+
     },
     posTitle:{
       alignItems: 'center'

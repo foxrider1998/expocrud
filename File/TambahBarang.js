@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Picker, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TextInput, Picker, TouchableOpacity, StyleSheet ,ImageBackground} from "react-native";
 import {dataRef} from './References';
 
 export default function TambahBarang({navigation, route}){
@@ -16,10 +16,10 @@ export default function TambahBarang({navigation, route}){
         const ref = dataRef.child('barang').push(newData);
         const key = ref.key;
         dataRef.child('barang').child(key).update({'key': key})
-        navigation.navigate('Portofolio')
+        navigation.navigate('Data Barang')
     };
 
-    return (
+    return ( <ImageBackground source={require("../assets/login.jpg")} style={styles.bg} >
       <View style={styles.container}>
         <View style={styles.posTitle}>
           <Text style={styles.title}>Tambah Barang</Text>
@@ -70,6 +70,7 @@ export default function TambahBarang({navigation, route}){
           </View>
           
       </View>
+      </ImageBackground>
     )
 }
 
@@ -117,6 +118,10 @@ const styles = StyleSheet.create({
       alignItems:'center',
       backgroundColor : '#ccffff',
       justifyContent : 'center'
+    },
+    bg:{width :'100%',
+        height:'100%'
+
     },
     textButton:{
       fontWeight: 'bold',
