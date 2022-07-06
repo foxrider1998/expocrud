@@ -10,16 +10,15 @@ export default function Edit({navigation, route}){
     const [bquantity, setQuantity] = useState(quantity);
 
    const ubahData = (keyUbah) => {
-        console.log(bquantity)
         dataRef.child('barang').child(key).update({'id': bid,
                                        'nama' : bnama,
                                        'quantity': bquantity});
-        navigation.navigate('Biodata');
+        navigation.navigate('Menu');
     };
 
     const hapusData = (keyUbah) =>{
         dataRef.child("barang").child(key).remove();
-        navigation.navigate('Biodata');
+        navigation.navigate('Menu');
     
      }
 

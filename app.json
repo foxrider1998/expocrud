@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "p11-2022",
+    "name": "mylittlebussines",
     "slug": "snack-b0c04cfa-706f-42a2-ac59-0333c92550e8",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,10 +23,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.arestok.snackb0c04cfa706f42a2ac590333c92550e8"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }

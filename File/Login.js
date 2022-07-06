@@ -28,12 +28,15 @@ export default function Login({navigation}){
     return (
       
       <ImageBackground source={require("../assets/loginbg.jpg")} style={styles.bg} > 
-        <View style={styles.posTitle1}>
-          
+        
+        <View style={styles.space}> 
         </View>
         <View style={styles.posTitle}>
           
-        </View>
+          <Text style={{fontSize:24,color:"white"}}>
+            silahkan masuk atau mendaftar
+            </Text>
+       </View>
 
           <View style={styles.contInput}>
             <View style={styles.posInput}>
@@ -78,35 +81,33 @@ export default function Login({navigation}){
 }
 
 const styles = StyleSheet.create({
-   bg:{width :'100%',
-        height:'100%'
+   bg:{width :null,
+        height:null,
+        flex:3
 
-    }, container:{width :'100%',
-        height:'100%',
-    },
+    }, 
     posTitle:{
       alignItems: 'center'
+    },
+    space:{
+      alignItems: 'center',
+      height : "40%"
     },
     posTitle1:{
       alignItems: 'center',
       margin : 20
     },
     contInput:
-      {width :'70%',
-        height:'70%',
-        marginBottom: "40%",
-      marginTop: "60%",
-      margin: 60,
-      padding: 15,
+      {marginTop:10,
+       
+      alignItems: 'center',
+      
       borderRadius: 15
     },
-    posInput:{
+    posInput:{ width:230,
+      margin:4,
+      alignItems: 'center',
       borderRadius: 30,
-      marginLeft : 20,
-      marginRight : 20,
-      marginBottom : 10,
-      paddingLeft : 10,
-      paddingRight: 10,
       backgroundColor:'#0066ff'
     },
     input:{

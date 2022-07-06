@@ -22,14 +22,19 @@ const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
-export default function Router() {
+const Logout = (item) => {
+  console.log("logout ok")
+  navigation.navigate('LoginScreen')
+}
+
+export default function Router(navigation,navigate) {
   return ( 
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="MyDrawer" component={MyDrawer} />
         <Stack.Screen name="LoginScreen" component={Login} />
-        <Stack.Screen name="MyTab" component={MyTab} options={{ title:'Kembali', headerShown: false }}/>
-        <Stack.Screen name="MyStack" component={MyStack} options={{ title:'Batal', headerShown: false }}/>
+        <Stack.Screen name="MyTab" component={MyTab} options={{ title:'Kembali',  }}/>
+        <Stack.Screen name="MyStack" component={MyStack} options={{ title:'Batal', }}/>
         <Stack.Screen name="Registrasi" component={Regis} options={{headerShown: true, title:"Kembali"}}/>
               
       </Stack.Navigator>

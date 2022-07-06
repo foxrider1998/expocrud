@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   Alert,
   Image,
-  ImageBackground
+  ImageBackground,
+  ScrollView
 } from 'react-native';
 import { dataRef } from './References';
 export default function DataCost({ navigation, route }) {
@@ -72,7 +73,8 @@ export default function DataCost({ navigation, route }) {
   };
   return (
      <ImageBackground source={require("../assets/login.jpg")} style={styles.bg} >
-    <View style={styles.container}>
+    
+      <ScrollView>
       <View style={styles.posTitle}>
         <Text style={styles.title}>Data Costumer</Text>
       </View>
@@ -128,7 +130,7 @@ export default function DataCost({ navigation, route }) {
           <Text style={styles.textContentTitle1}>Tambah</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
        </ImageBackground >
   );
 }

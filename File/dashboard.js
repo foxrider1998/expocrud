@@ -1,5 +1,6 @@
+import { auth } from 'firebase';
 import React, { useState, useEffect } from 'react';
-
+import Router from '../Router';
 import {
   View,
   Text,
@@ -15,17 +16,16 @@ export default function Dashboard({ navigation}) {
 
   const act = (item) => {
     console.log(item)
-    navigation.navigate('MyTab', {
-      screen: item,
-      param:{}
+    navigation.navigate('Menu', {
+      screen: item
      
     });
   };
-  const actscreen = (item) => {
-    console.log(item)
-   
-     navigation.navigate("LoginScreen")
-     
+  const logout = (item) => {
+    navigation.navigate(item, {
+      screen: item
+    });
+  
    
   };
 
@@ -39,11 +39,14 @@ export default function Dashboard({ navigation}) {
                       <View style={styles.photo}>
                         <Image source={require('../assets/user.png')} style={styles.photo} >
                         </Image>
-                        <Text style={styles.asText}>Home</Text>
-                        <TouchableOpacity  onPress={()=>actscreen("LoginScreen")}>
-                        <Image source={require('../assets/logout.png')} style={styles.logout}>
-                        </Image>
+                        <View style={styles.textheader}>
+                        <Text style={styles.asText}>      Home</Text>
+                        </View>
+                        
+                        <TouchableOpacity  onPress={()=>logout("LoginScreen")}>
+                          <Image source={require('../assets/logout.png')} style={styles.photo} ></Image>
                         </TouchableOpacity>
+                        
                       </View>
                     </View>
 
@@ -55,6 +58,7 @@ export default function Dashboard({ navigation}) {
                        <TouchableOpacity style={styles.avatar} onPress={()=>act("Data Costumer")}>
                         <Text style={styles.asText}>data costumer</Text>
                       </TouchableOpacity>
+
                        <TouchableOpacity style={styles.avatar} onPress={()=>act("Data Barang")}>
                         <Text style={styles.asText}>data barang</Text>
                       </TouchableOpacity>
@@ -70,21 +74,28 @@ const styles = StyleSheet.create({
 	container:{
         flexDirection:'column'
 	},
-  logout:{marginLeft:"170%",
+  logout:{
         marginTop:"10%",
         
         
 
   },
-  photo:{width:80,
+  textheader:{
+        width:"420%",
         height:80,
-        
+        flexDirection: 'row',
+        alignItems: "center"
+
+  },
+  photo:{
+        width:80,
+        height:80,
         flexDirection: 'row'
         
 
   },
 	header:{
-   
+    width :"100%",
 		backgroundColor:'grey',
         flexDirection: 'row'
 	},
@@ -102,7 +113,7 @@ const styles = StyleSheet.create({
         height:'100%'
 
     },
-	quickacces:{
+	quickacces:{ marginTop:50,
 		backgroundColor:'blue',
         flexDirection: 'row'
   },

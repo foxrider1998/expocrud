@@ -16,12 +16,12 @@ export default function EditCostumer({navigation, route}){
                                        'nama' : bnama,
                                        'alamat': balamat,
                                        'notel': bnotel});
-        navigation.navigate('Biodata');
+        navigation.navigate('Menu');
     };
 
     const hapusData = (key) =>{
         dataRef.child("cost").child(key).remove();
-        navigation.navigate('Biodata');
+        navigation.navigate('Menu');
     
      }
 

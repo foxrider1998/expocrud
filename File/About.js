@@ -1,16 +1,38 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image,Linking,TouchableOpacity } from "react-native";
 
 export default function About(){
     return(
       <View style={styles.container}>
           <View style={styles.header}>
               <View style={styles.nama}>
-                      <Text style={styles.namaText}>TakeMeApp</Text>
-                      <Text style={styles.asText}>Aplikasi ini menyimpan informasi portofolio dari setiap user.</Text>
+                      <Text style={styles.namaText}>MylitlleBussines</Text>
+                      <Text style={styles.asText}>Aplikasi ini menyimpan informasi barang dan costumer.</Text>
+
               </View>
           </View>
+          <Text style={styles.namaText}>call us</Text>
+
+          <TouchableOpacity onPress={() => Linking.openURL("https://wa.me/083816281318")}> 
+          <Text style={styles.asText}>Arid</Text> 
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => Linking.openURL("https://wa.me/085743019186")}> 
+          <Text style={styles.asText}>Aris</Text> 
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => Linking.openURL("https://wa.me/082370488875")}>
+           <Text style={styles.asText}>Taufik</Text>
+            </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => Linking.openURL("https://snack.expo.dev/@arestok/5597e7")}> 
+          <Text style={styles.asText}>special untuk bu Meriska</Text> 
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => Linking.openURL("https://github.com/foxrider1998/expocrud")}> 
+          <Text style={styles.asText}>this project avaible at github</Text>
+           </TouchableOpacity>
+
 		    </View>
+
     )
   }
 

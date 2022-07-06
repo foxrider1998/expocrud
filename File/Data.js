@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity ,Alert,Image,ImageBackground} from "react-native";
+import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity ,Alert,Image,ImageBackground,ScrollView} from "react-native";
 import {dataRef} from './References';
 
 export default function Data({navigation, route}){
@@ -57,7 +57,8 @@ export default function Data({navigation, route}){
       }
       
     return(  <ImageBackground source={require("../assets/login.jpg")} style={styles.bg} >
-       <View style={styles.container}>
+       
+       <ScrollView>
           <View style={styles.posTitle}>
             <Text style={styles.title}>Data Barang</Text>
           </View>
@@ -112,7 +113,7 @@ export default function Data({navigation, route}){
                      <Text style = {styles.textContentTitle1}>Tambah</Text>
                     </TouchableOpacity>
                     </View>
-      </View>
+                    </ScrollView>
        </ImageBackground>
     )
 }
